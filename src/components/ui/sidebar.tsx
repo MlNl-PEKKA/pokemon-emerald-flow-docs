@@ -501,7 +501,7 @@ function SidebarMenuButton({
   tooltip?: string | React.ComponentProps<typeof TooltipContent>;
 } & VariantProps<typeof sidebarMenuButtonVariants>) {
   const Comp = asChild ? Slot.Root : "button";
-  const { isMobile, state } = useSidebar();
+  const { isMobile, state, toggleSidebar } = useSidebar();
 
   const button = (
     <Comp
@@ -511,6 +511,10 @@ function SidebarMenuButton({
       data-active={isActive}
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props}
+      onClick={(e) => {
+        if (props.onClick) props.onClick(e);
+        if (isMobile) toggleSidebar();
+      }}
     />
   );
 
@@ -657,6 +661,7 @@ function SidebarMenuSubButton({
   size?: "sm" | "md";
   isActive?: boolean;
 }) {
+  const { isMobile, toggleSidebar } = useSidebar();
   const Comp = asChild ? Slot.Root : "a";
 
   return (
@@ -670,6 +675,10 @@ function SidebarMenuSubButton({
         className,
       )}
       {...props}
+      onClick={(e) => {
+        if (props.onClick) props.onClick(e);
+        if (isMobile) toggleSidebar();
+      }}
     />
   );
 }

@@ -11,11 +11,11 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarRail,
 } from "~/components/ui/sidebar";
 import Image from "next/image";
 import { menuItems } from "~/lib/menu-items";
 import Link from "next/link";
+import { Badge } from "./ui/badge";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -28,9 +28,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg border-2">
                   <Image src="/logo.png" alt="Logo" width={32} height={32} />
                 </div>
-                <div className="flex flex-col gap-0.5 leading-none">
+                <div className="flex flex-col gap-1 leading-none">
                   <span className="font-medium">Pokemon Emerald Flow</span>
-                  <span className="">v1.0.0-beta</span>
+                  <Badge variant={"outline"}>v1.0.0-beta</Badge>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -63,7 +63,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarRail />
     </Sidebar>
   );
 }

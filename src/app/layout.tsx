@@ -5,6 +5,13 @@ import { Geist, Inter } from "next/font/google";
 import { cn } from "~/lib/utils";
 import { TooltipProvider } from "~/components/ui/tooltip";
 import { ThemeProvider } from "~/components/theme-provider";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "~/components/ui/sidebar";
+import { AppSidebar } from "~/components/app-sidebar";
+import { ModeToggle } from "~/components/mode-toggle";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -35,7 +42,22 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <SidebarProvider>
+              <AppSidebar variant="floating" />
+              <SidebarInset>
+                <header className="sticky top-0 z-10 flex h-16 items-center px-4">
+                  <SidebarTrigger variant="outline" />
+                  <div className="ml-auto">
+                    <ModeToggle />
+                  </div>
+                </header>
+                <section className="mb-16 flex min-h-[calc(100dvh-8rem)] flex-col items-center justify-center">
+                  {children}
+                </section>
+              </SidebarInset>
+            </SidebarProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

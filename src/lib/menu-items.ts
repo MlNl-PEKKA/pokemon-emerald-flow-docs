@@ -1,9 +1,8 @@
 const separatorIn = " " as const;
 const separatorOut = "-" as const;
-const urlPrefix = "#" as const;
 const sections = [
-  ["Introduction", ["Welcome", "Goals"]],
-  ["Installation", ["Rom Patcher JS", "Hack Dex"]],
+  ["Overview"],
+  ["Setup", ["Rom Patcher JS", "Hack Dex"]],
   [
     "Features",
     [
@@ -36,19 +35,20 @@ const sections = [
       "Music",
     ],
   ],
-  ["Credits", ["pret-pokeemerald", "Code", "Ideas"]],
+  ["Credits"],
+  ["Plans"],
 ] as const satisfies Sections;
 
 const getUrl = <T extends string>(str: T) =>
-  `${urlPrefix}${str.toLowerCase().replaceAll(separatorIn, separatorOut)}` as `${typeof urlPrefix}${KebabCase<T>}`;
+  `/${str.toLowerCase().replaceAll(separatorIn, separatorOut)}` as `${KebabCaseUrl<T>}`;
 
 const getMenuItems = <T extends Sections>(sections: T) =>
   sections.map(([section, subSections]) => ({
     title: section,
     url: getUrl(section),
-    items: subSections.map((subSection) => ({
+    items: (subSections ?? []).map((subSection) => ({
       title: subSection,
-      url: getUrl(subSection),
+      url: `${getUrl(section)}${getUrl(subSection)}`,
     })),
   })) as MenuData<T>;
 
@@ -58,7 +58,7 @@ type Prettify<T> = {
   [k in keyof T]: T[k];
 } & {};
 
-type Section = [string, string[]];
+type Section = [string] | [string, string[]];
 
 type Sections = Section[];
 
@@ -71,24 +71,31 @@ type KebabCase<
     : KebabCase<Rest, `${U}${Lowercase<R>}`>
   : U;
 
-type MenuItemContent<T extends string = string> = {
+type KebabCaseUrl<T extends string> = `/${KebabCase<T>}`;
+
+type MenuItemContent<T extends string = string, U extends string = ""> = {
   title: T;
-  url: `${typeof urlPrefix}${KebabCase<T>}`;
+  url: U extends ""
+    ? `${KebabCaseUrl<T>}`
+    : `${KebabCaseUrl<U>}${KebabCaseUrl<T>}`;
 };
 
 type MenuSubItems<
   T extends string[] = string[],
-  U extends MenuItemContent[] = [],
+  S extends string = "",
+  U extends unknown[] = [],
 > = T extends [infer R extends string, ...infer Rest extends string[]]
-  ? MenuSubItems<Rest, [...U, Prettify<MenuItemContent<R>>]>
+  ? MenuSubItems<Rest, S, [...U, Prettify<MenuItemContent<R, S>>]>
   : U;
 
 type MenuItem<T extends Section, U extends unknown[] = []> = T extends [
   infer R extends string,
   infer S extends string[],
 ]
-  ? [...U, Prettify<MenuItemContent<R> & { items: MenuSubItems<S> }>]
-  : U;
+  ? [...U, Prettify<MenuItemContent<R> & { items: MenuSubItems<S, R> }>]
+  : T extends [infer R extends string]
+    ? [...U, Prettify<MenuItemContent<R> & { items: [] }>]
+    : U;
 
 type MenuData<T extends Sections, U extends unknown[] = []> = T extends [
   infer R extends Section,

@@ -1,55 +1,23 @@
-import { AppSidebar } from "~/components/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "~/components/ui/breadcrumb";
-import { Separator } from "~/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "~/components/ui/sidebar";
+import Image from "next/image";
+import { Badge } from "~/components/ui/badge";
 
 export default function Page() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
-          <div className="flex items-center gap-2 px-3">
-            <SidebarTrigger />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-vertical:h-4 data-vertical:self-auto"
-            />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Build Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-        </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-          </div>
-          <div className="bg-muted/50 min-h-screen flex-1 rounded-xl md:min-h-min" />
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="flex flex-1 flex-col items-center justify-center px-4">
+      <Image
+        src="/logo.png"
+        width={140}
+        height={140}
+        alt="Pokemon Emerald Flow Logo"
+        priority
+      />
+
+      <div className="mt-8 flex flex-col items-center gap-2">
+        <h1 className="text-center text-2xl font-bold tracking-tight md:text-4xl">
+          Pokemon Emerald Flow
+        </h1>
+        <Badge variant={"outline"}>v1.0.0-beta</Badge>
+      </div>
+    </div>
   );
 }
