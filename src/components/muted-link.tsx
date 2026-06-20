@@ -23,11 +23,16 @@ export function MutedLink({
   link,
 }: PropsWithChildren<{
   link: Omit<ComponentProps<typeof Link>, "children">;
-  muted?: VariantProps<typeof mutedVariants>;
+  muted?: Omit<ComponentProps<typeof Muted>, "children"> &
+    VariantProps<typeof mutedVariants>;
 }>) {
   return (
     <Link {...link}>
-      <Muted className={cn(mutedVariants({ size: muted?.size }))}>
+      <Muted
+        className={cn(
+          mutedVariants({ className: muted?.className, size: muted?.size }),
+        )}
+      >
         {children}
       </Muted>
     </Link>
