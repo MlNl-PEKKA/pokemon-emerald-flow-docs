@@ -59,7 +59,13 @@ export function H4(props: PropsWithChildren<ComponentPropsWithoutRef<"h4">>) {
 
 export function P(props: PropsWithChildren<ComponentPropsWithoutRef<"p">>) {
   return (
-    <p {...props} className={cn("leading-7 not-first:mt-6", props.className)}>
+    <p
+      {...props}
+      className={cn(
+        "leading-7 text-pretty hyphens-auto not-first:mt-6",
+        props.className,
+      )}
+    >
       {props.children}
     </p>
   );
