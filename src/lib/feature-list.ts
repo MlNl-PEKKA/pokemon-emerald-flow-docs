@@ -4,7 +4,7 @@ const getOptions = <T extends string[]>(options: Prettify<Options<T>>) =>
   options;
 
 const optionsOnOff = getOptions({
-  options: ["On", "Off"],
+  options: ["Off", "On"],
   defaultOption: "Off",
 } as const);
 
@@ -24,7 +24,7 @@ const optionsEVTraining = getOptions({
 } as const);
 
 const optionsCatchRate = getOptions({
-  options: ["100%", "Off"],
+  options: ["Off", "100%"],
   defaultOption: "Off",
 } as const);
 

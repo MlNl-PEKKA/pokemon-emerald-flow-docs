@@ -25,7 +25,14 @@ const Option = ({
   if (!value) return <TableCell className={className}>-</TableCell>;
 
   if (value === option.defaultOption)
-    return <TableCell className={className}>{value} ✅</TableCell>;
+    return (
+      <TableCell
+        className={cn(className, "flex flex-1 flex-row justify-between")}
+      >
+        <span>{value}</span>
+        <span>✅</span>
+      </TableCell>
+    );
 
   return <TableCell className={className}>{value}</TableCell>;
 };
@@ -37,12 +44,12 @@ export const FeaturesTable = () => {
         <TableRow>
           <TableHead className="border-r">Feature</TableHead>
           <TableHead className="w-16 border-r text-left md:w-24">
-            Op.1
+            Opt.1
           </TableHead>
           <TableHead className="w-16 border-r text-left md:w-24">
-            Op.2
+            Opt.2
           </TableHead>
-          <TableHead className="w-16 text-left md:w-24"> Op.3</TableHead>
+          <TableHead className="w-16 text-left md:w-24"> Opt.3</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
