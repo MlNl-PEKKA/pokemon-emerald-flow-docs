@@ -24,8 +24,8 @@ const optionsEVTraining = getOptions({
 } as const);
 
 const optionsCatchRate = getOptions({
-  options: ["Off", "100%"],
-  defaultOption: "Off",
+  options: ["Normal", "100%"],
+  defaultOption: "Normal",
 } as const);
 
 const optionsFastEggs = getOptions({
