@@ -12,7 +12,6 @@ import {
 } from "~/components/ui/sidebar";
 import { AppSidebar } from "~/components/app-sidebar";
 import { ModeToggle } from "~/components/mode-toggle";
-import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -31,39 +30,37 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ViewTransitions>
-      <html
-        lang="en"
-        className={cn(geist.variable, "font-sans", inter.variable)}
-        suppressHydrationWarning
-      >
-        <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <TooltipProvider>
-              <SidebarProvider>
-                <AppSidebar variant="floating" />
-                <SidebarInset>
-                  <header className="sticky top-0 z-10 flex h-16 items-center px-4">
-                    <SidebarTrigger
-                      variant="outline"
-                      className="dark:bg-sidebar/95"
-                    />
-                    <div className="ml-auto">
-                      <ModeToggle />
-                    </div>
-                  </header>
-                  {children}
-                </SidebarInset>
-              </SidebarProvider>
-            </TooltipProvider>
-          </ThemeProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html
+      lang="en"
+      className={cn(geist.variable, "font-sans", inter.variable)}
+      suppressHydrationWarning
+    >
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>
+            <SidebarProvider>
+              <AppSidebar variant="floating" />
+              <SidebarInset>
+                <header className="sticky top-0 z-10 flex h-16 items-center px-4">
+                  <SidebarTrigger
+                    variant="outline"
+                    className="dark:bg-sidebar/95"
+                  />
+                  <div className="ml-auto">
+                    <ModeToggle />
+                  </div>
+                </header>
+                {children}
+              </SidebarInset>
+            </SidebarProvider>
+          </TooltipProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

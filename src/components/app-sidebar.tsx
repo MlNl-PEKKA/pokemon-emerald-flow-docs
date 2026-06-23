@@ -13,7 +13,7 @@ import {
 } from "~/components/ui/sidebar";
 import Image from "next/image";
 import { menuItems } from "~/lib/menu-items";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { MenuButton } from "./menu-button";
 

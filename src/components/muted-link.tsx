@@ -1,4 +1,4 @@
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { Muted } from "./ui/typography";
 import type { ComponentProps, PropsWithChildren } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
