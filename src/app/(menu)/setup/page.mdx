@@ -1,11 +1,13 @@
-import { Alert } from "~/components/alerts";
-import { Hero } from "~/components/hero";
-import { MutedLink } from "~/components/muted-link";
-import { pages } from "~/lib/menu-items";
+import {
+  HackDexPageLink,
+  Hero,
+  RomsPatcherJSPageLink,
+  Title,
+} from "./components";
 
-## Setup
+<Title />
 
-<Hero src="/setup.webp" alt="Setup">
+<Hero>
 **Pokemon Emerald Flow** is designed to be reverse compatible with the
   original _Pokémon Emerald_.
 
@@ -15,21 +17,21 @@ moving an existing game to **Emerald Flow**.
 
 </Hero>
 
-<Alert variant="important" className="mt-0">
+<Important>
   Since Pokemon Emerald Flow is distributed as a patch, you'll need a **"LEGALLY
   OBTAINED COPY OF AN ORIGINAL POKÉMON EMERALD ROM"**.
-</Alert>
+</Important>
 
-<Alert variant="caution">
+<Caution>
   **DO NOT ATTEMPT TO PATCH AN ALREADY MODIFIED OR PATCHED ROM.**
-</Alert>
+</Caution>
 
-<Alert variant="note">
+<Note>
   When launching Pokemon Emerald Flow for the first time, all game options will
   be **RESET** to their **DEFAULT VALUES**. This only happens **ONCE**. If
   you're curious about the default settings, head over to the Features section
   for a complete overview.
-</Alert>
+</Note>
 
 After that, you are free to move between **Pokemon Emerald Flow** and the original game.
 Save compatibility has been a major design goal, but caution is always recommended.
@@ -37,15 +39,5 @@ Keep backups and treat them as insurance.
 
 The following pages cover two ways to set up your game:
 
-- <MutedLink
-    link={{ href: pages.setup["rom-patcher-js"].url }}
-    muted={{ size: "medium" }}
-  >
-    {pages.setup["rom-patcher-js"].title}
-  </MutedLink>
-- <MutedLink
-    link={{ href: pages.setup["hack-dex"].url }}
-    muted={{ size: "medium" }}
-  >
-    {pages.setup["hack-dex"].title}
-  </MutedLink>
+- <RomsPatcherJSPageLink />
+- <HackDexPageLink />

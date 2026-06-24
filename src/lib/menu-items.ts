@@ -43,11 +43,28 @@ const getPages = <T extends Sections>(sections: T) => {
   ) as PageData<T>;
 };
 
+const getPageTitles = <T extends Sections>(sections: T) => {
+  return sections.reduce(
+    (acc, [section, subSections]) => {
+      acc[getUrl(section)] = section;
+      subSections?.forEach((subSection) => {
+        acc[`${getUrl(section)}${getUrl(subSection)}`] = subSection;
+      });
+      return acc;
+    },
+    {} as Record<string, string>,
+  ) as UrlToPage<T>;
+};
+
 export const menuItems = getMenuItems(sections);
 
 export const pages = getPages(sections);
 
-type Section = [string] | [string, string[]];
+export const pageTitles = getPageTitles(sections);
+
+export type Urls = (typeof pageTitles)[keyof typeof pageTitles];
+
+export type Section = [string] | [string, string[]];
 
 type Sections = Section[];
 
@@ -107,8 +124,9 @@ type PageItem<T extends Section> = T extends [
   infer S extends string[],
 ]
   ? {
-      [key in `${KebabCase<R>}`]: Prettify<MenuItemContent<R>> &
-        PageSubItems<S, R>;
+      [key in `${KebabCase<R>}`]: Prettify<
+        MenuItemContent<R> & PageSubItems<S, R>
+      >;
     }
   : T extends [infer R extends string]
     ? {
@@ -122,5 +140,41 @@ type PageData<
 > = Prettify<
   T extends [infer R extends Section, ...infer S extends Sections]
     ? PageData<S, U & PageItem<R>>
+    : U
+>;
+
+type UrlToPageSubTitles<
+  T extends string[] = string[],
+  S extends string = "",
+  U extends object = {},
+> = T extends [infer R extends string, ...infer Rest extends string[]]
+  ? UrlToPageSubTitles<
+      Rest,
+      S,
+      U & {
+        [key in `${KebabCaseUrl<S>}${KebabCaseUrl<R>}`]: R;
+      }
+    >
+  : U;
+
+type UrlToPageTitle<T extends Section> = T extends [
+  infer R extends string,
+  infer S extends string[],
+]
+  ? {
+      [key in `${KebabCaseUrl<R>}`]: R;
+    } & UrlToPageSubTitles<S, R>
+  : T extends [infer R extends string]
+    ? {
+        [key in `${KebabCaseUrl<R>}`]: R;
+      }
+    : never;
+
+type UrlToPage<
+  T extends Sections,
+  U extends Record<string, Page> = {},
+> = Prettify<
+  T extends [infer R extends Section, ...infer S extends Sections]
+    ? UrlToPage<S, U & UrlToPageTitle<R>>
     : U
 >;

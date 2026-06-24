@@ -99,3 +99,23 @@ export const Alert = ({
     </div>
   );
 };
+
+export const Caution = ({ children }: PropsWithChildren) => (
+  <Alert variant="caution">{children}</Alert>
+);
+
+export const Important = ({ children }: PropsWithChildren) => (
+  <Alert variant="important">{children}</Alert>
+);
+
+export const Note = ({ children }: PropsWithChildren) => (
+  <Alert variant="note">{children}</Alert>
+);
+
+export const Tip = ({ children }: PropsWithChildren) => (
+  <Alert variant="tip">{children}</Alert>
+);
+
+export const Warning = ({ children }: PropsWithChildren) => (
+  <Alert variant="warning">{children}</Alert>
+);
