@@ -17,6 +17,7 @@ export function PageHero({
     <section className="my-6 flex flex-col-reverse gap-8 lg:flex-row lg:items-center lg:gap-0">
       <div className="flex flex-1 flex-col">{children}</div>
       <div className="relative shrink-0 self-center">
+        <HeroBackground {...blob} />
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
           src={src}
