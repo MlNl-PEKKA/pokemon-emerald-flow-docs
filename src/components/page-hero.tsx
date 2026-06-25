@@ -22,14 +22,11 @@ export function PageHero({
         <Image
           src={src}
           alt={alt}
+          width={180}
+          height={180}
+          className={cn("relative mx-auto", className)}
           unoptimized
           priority
-          sizes="100vw"
-          width={0}
-          height={0}
-          // Make the image display full width
-          // and preserve its aspect ratio
-          className={cn("relative mx-auto h-auto w-40 md:w-48", className)}
         />
       </div>
     </section>
