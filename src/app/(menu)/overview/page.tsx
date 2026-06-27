@@ -1,4 +1,4 @@
-import { Hero, HeroMd } from "~/components/hero";
+import { HeroMd } from "~/components/hero";
 import { Md } from "~/components/markdown";
 import { pages } from "~/lib/menu-items";
 
