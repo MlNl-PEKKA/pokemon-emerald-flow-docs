@@ -20,7 +20,7 @@ export function Hero({
         {children}
       </div>
       <div className="relative flex items-center justify-center">
-        <HeroBackground {...blob} />
+        {/* <HeroBackground {...blob} /> */}
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
           src={src}
