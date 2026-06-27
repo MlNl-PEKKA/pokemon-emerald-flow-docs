@@ -61,7 +61,7 @@ function HeroBackground({
   return (
     <div
       className={cn(
-        "absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 scale-1000 rounded-full bg-emerald-500 opacity-60 blur-[1px] dark:opacity-20",
+        "absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 scale-1500 rounded-full bg-emerald-500 opacity-60 blur-[12px] dark:opacity-20",
         blobBgColor,
         blobTranslateX,
         blobTranslateY,
