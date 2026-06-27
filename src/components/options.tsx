@@ -47,7 +47,7 @@ export const Option = ({
               <Ban className="absolute scale-250 opacity-50" strokeWidth={1} />
             )}
           </div>
-          <>{!isDefault ? "Coming soon!" : "No preview"}</>
+          <>{!isDefault ? "Coming soon!" : "No demo"}</>
         </div>
       </TableCell>
     </TableRow>
@@ -76,7 +76,7 @@ export const Options = (props: PropsWithChildren) => {
           <TableHead className="w-[20%] border-r text-center md:w-[15%]">
             Default
           </TableHead>
-          <TableHead className="w-[40%] text-center">Gameplay</TableHead>
+          <TableHead className="w-[40%] text-center">Gameplay Demo</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>{props.children}</TableBody>

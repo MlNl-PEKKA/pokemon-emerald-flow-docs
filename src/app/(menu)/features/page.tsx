@@ -17,10 +17,9 @@ import { Md } from "~/components/markdown";
 export default function Page() {
   // prettier-ignore
   return (
-<>
-<Md>
-{
-`
+    <>
+      <Md>
+        {`
 ## ${pages.features.title}
 
 **Pokemon Emerald Flow** includes a variety of optional
@@ -31,24 +30,20 @@ When starting a new game, all options are initialized to their default
 values. These defaults are intended to provide a clean slate start
 similar to that of the original _Pokémon Emerald_.
 
-Below is a list of feature with their titles (with links), respective
-options and default setting (marked as ✅). Every feature has its own
-dedicated page with detailed explanations, examples, and
-recommendations.
-`
-}
-</Md>
-<AlertMd>
-{
-`
+Below is a list of features with links to their documentation, 
+available options, and the default setting (marked with ✅). 
+Each feature has its own dedicated page with further explanations.
+`}
+      </Md>
+      <AlertMd>
+        {`
 Default settings are applied automatically the first time Pokemon
 Emerald Flow is launched. This initialization only happens once.
-`
-}
-</AlertMd>
-<FeaturesTable />
-</>
-);
+`}
+      </AlertMd>
+      <FeaturesTable />
+    </>
+  );
 }
 
 function Option({
