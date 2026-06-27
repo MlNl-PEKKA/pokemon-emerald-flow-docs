@@ -6,7 +6,7 @@ import { features } from "~/lib/feature-list";
 
 export default function Page() {
   const feature = features.running;
-  const img = "/repel.webp";
+  const img = "/running.webp";
   // prettier-ignore
   return (
 <>
@@ -19,30 +19,37 @@ export default function Page() {
 </Md>
 <HeroMd 
 src={img}
-alt="Repel item sprite"
+alt="Brendan running sprite"
 >
 {
 `
-**Permanent Repel** lets you toggle Repel effects on or
-off without repeatedly using any Repel items.
+**${feature.title}** can be used to set the type running experience you want to have.
 
-It behaves just like a standard Repel, but stays active until you
-choose otherwise.
+This feature lets you run indoors or change how holding the B Button works.
 `
 }
 </HeroMd>
 <FeatureNotes
 bgColor="bg-emerald-800"
 borderColor="border-emerald-600"
+childBorderColor="[&>div]:not-first:border-emerald-600"
 textColor="text-emerald-600"
 >
-<FeatureNotes.NoteMd src="/pokeball.webp" alt="Pokeball item sprite">
+<FeatureNotes.NoteMd src="/mom.webp" alt="Mom sprite">
 {
 `
-**Encounters** 
+**Running Shoes** 
 
-Wild Pokémon with a higher level than your
-lead Pokémon can still appear.
+Running shoes must still be obtained by mom at the start of the game.
+`
+}
+</FeatureNotes.NoteMd>
+<FeatureNotes.NoteMd src="/b-button.webp" alt="B-Button sprite">
+{
+`
+**B-Button** 
+
+Some options might still require you hold B.
 `
 }
 </FeatureNotes.NoteMd>
@@ -54,7 +61,7 @@ feature.options.map((option, i)=>
 <Options.OptionMd
 key={i}
 src={img}
-alt="Repel item sprite"
+alt="Brendan running sprite"
 isDefault={option.title == feature.defaultOption}
 >
 {

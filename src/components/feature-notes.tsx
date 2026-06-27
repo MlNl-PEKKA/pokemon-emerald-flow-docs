@@ -14,11 +14,9 @@ export const Note = ({
   Pick<ComponentProps<typeof Image>, "src" | "alt" | "className">
 >) => {
   return (
-    <div className="mt-4 flex flex-1 flex-row items-center gap-4">
+    <div className="flex flex-row items-center gap-4 py-2">
       <Image src={src} alt={alt} unoptimized priority width={48} height={48} />
-      <div className="flex flex-1 flex-col text-sm [&_strong]:text-lg">
-        {children}
-      </div>
+      <div className="flex flex-col text-sm [&_strong]:text-lg">{children}</div>
     </div>
   );
 };
@@ -40,10 +38,12 @@ export const FeatureNotes = <T extends TailwindColor>({
   bgColor,
   borderColor,
   textColor,
+  childBorderColor,
 }: PropsWithChildren<{
   className?: string;
   bgColor: `bg-${T}-800`;
   borderColor: `border-${NoInfer<T>}-600`;
+  childBorderColor: `[&>div]:not-first:border-${NoInfer<T>}-600`;
   textColor: `text-${NoInfer<T>}-600`;
 }>) => {
   return (
@@ -55,10 +55,15 @@ export const FeatureNotes = <T extends TailwindColor>({
         className,
       )}
     >
-      <div className="bg-background/90 flex flex-1 flex-col rounded-md p-4 [&>p]:mt-2!">
+      <div
+        className={cn(
+          "bg-background/90 flex flex-1 flex-col rounded-md p-4 [&>div]:not-first:not-last:border-b [&>p]:mt-2!",
+          childBorderColor,
+        )}
+      >
         <div
           className={cn(
-            "flex items-center gap-2 text-sm font-bold tracking-wide uppercase",
+            "flex items-center gap-2 pb-2 text-sm font-bold tracking-wide uppercase",
             textColor,
           )}
         >
