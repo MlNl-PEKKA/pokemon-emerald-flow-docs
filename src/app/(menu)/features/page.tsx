@@ -42,14 +42,6 @@ similar to that of the original _Pokémon Emerald_.
 `
 }
 </HeroMd>
-<Md>
-{
-`
-Below is a list of features with links to their documentation, 
-available options, and the default setting (marked with ✅). 
-Each feature has its own dedicated page with further explanations.
-`}
-</Md>
 <AlertMd>
 {
 `
@@ -58,6 +50,14 @@ Emerald Flow is launched. This initialization only happens once.
 `
 }
 </AlertMd>
+<Md>
+{
+`
+Below is a list of features with links to their documentation, 
+available options, and the default setting (marked with ✅). 
+Each feature has its own dedicated page with further explanations.
+`}
+</Md>
 <FeaturesTable />
 </>
 );

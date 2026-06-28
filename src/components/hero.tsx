@@ -16,7 +16,7 @@ export function Hero({
 >) {
   return (
     <section className="flex flex-col-reverse gap-8 md:flex-row md:gap-0">
-      <div className="flex flex-1 flex-col self-center *:mb-4 md:pt-4">
+      <div className="flex flex-1 flex-col self-center md:pt-4 [&>p]:not-last:mb-4">
         {children}
       </div>
       <div className="relative flex items-center justify-center">
