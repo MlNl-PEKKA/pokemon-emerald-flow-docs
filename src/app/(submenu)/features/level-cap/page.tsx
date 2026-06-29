@@ -4,10 +4,13 @@ import { Md } from "~/components/markdown";
 import { Options } from "~/components/options";
 import { features } from "~/lib/feature-list";
 import { AlertMd } from "~/components/alerts";
+import { rareCandy } from "~/lib/sprites/rareCandy";
+import { gymSign } from "~/lib/sprites/gymSign";
+import { pokeball } from "~/lib/sprites/pokeball";
 
 export default function Page() {
   const feature = features["level-cap"];
-  const img = "/sprites/rare-candy.webp";
+  const img = rareCandy;
   const alt = "Rare candy item sprite";
   // prettier-ignore
   return (
@@ -39,7 +42,7 @@ borderColor="border-blue-600"
 childBorderColor="[&>div]:not-first:border-blue-600"
 textColor="text-blue-600"
 >
-<FeatureNotes.NoteMd src="/sprites/gym-sign.webp" alt="Pokeball item sprite">
+<FeatureNotes.NoteMd src={gymSign} alt="Pokeball item sprite">
 {
 `
 **Cap progression** 
@@ -49,7 +52,7 @@ The level cap automatically updates after each major battle to match the next Gy
 `
 }
 </FeatureNotes.NoteMd>
-<FeatureNotes.NoteMd src="/sprites/rare-candy.webp" alt="Pokeball item sprite">
+<FeatureNotes.NoteMd src={rareCandy} alt="Pokeball item sprite">
 {
 `
 **Experience gains** 
@@ -58,7 +61,7 @@ Only experience gains are capped.
 `
 }
 </FeatureNotes.NoteMd>
-<FeatureNotes.NoteMd src="/sprites/pokeball.webp" alt="Pokeball item sprite">
+<FeatureNotes.NoteMd src={pokeball} alt="Pokeball item sprite">
 {
 `
 **Higher-level Pokemon** 

@@ -1,7 +1,6 @@
 import type { ComponentProps } from "react";
 import Markdown from "react-markdown";
 import Link from "next/link";
-import { cn } from "~/lib/utils";
 
 export function Md(props: Omit<ComponentProps<typeof Markdown>, "components">) {
   return (

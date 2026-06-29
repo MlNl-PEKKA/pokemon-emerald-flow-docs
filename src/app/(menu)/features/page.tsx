@@ -14,9 +14,10 @@ import { cn, getKebabCase } from "~/lib/utils";
 import { AlertMd } from "~/components/alerts";
 import { Md } from "~/components/markdown";
 import { HeroMd } from "~/components/hero";
+import { bag } from "~/lib/sprites/bag";
 
 export default function Page() {
-  const img = "/sprites/bag.webp";
+  const img = bag;
   const alt = "Bag sprite";
   // prettier-ignore
   return (

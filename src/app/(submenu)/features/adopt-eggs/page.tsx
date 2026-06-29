@@ -3,10 +3,12 @@ import { FeatureNotes } from "~/components/feature-notes";
 import { Md } from "~/components/markdown";
 import { Options } from "~/components/options";
 import { features } from "~/lib/feature-list";
+import { repel } from "~/lib/sprites/repel";
+import { pokeball } from "~/lib/sprites/pokeball";
 
 export default function Page() {
   const feature = features["adopt-eggs"];
-  const img = "/sprites/repel.webp";
+  const img = repel;
   const alt = "Repel item sprite";
   // prettier-ignore
   return (
@@ -38,7 +40,7 @@ borderColor="border-emerald-600"
 childBorderColor="[&>div]:not-first:border-emerald-600"
 textColor="text-emerald-600"
 >
-<FeatureNotes.NoteMd src="/sprites/pokeball.webp" alt="Pokeball item sprite">
+<FeatureNotes.NoteMd src={pokeball} alt="Pokeball item sprite">
 {
 `
 **Encounters** 

@@ -21,7 +21,6 @@ export function Hero({
       </div>
       <div className="relative flex items-center justify-center">
         <HeroBackground {...blob} />
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
           src={src}
           alt={alt}
@@ -30,7 +29,6 @@ export function Hero({
           className={cn("relative mx-auto md:mx-0", className)}
           unoptimized
           priority
-          style={{ imageRendering: "pixelated" }}
         />
       </div>
     </section>

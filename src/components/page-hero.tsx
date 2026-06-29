@@ -18,7 +18,6 @@ export function PageHero({
       <div className="flex flex-1 flex-col">{children}</div>
       <div className="relative shrink-0 self-center">
         <HeroBackground {...blob} />
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
           src={src}
           alt={alt}

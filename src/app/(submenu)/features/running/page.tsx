@@ -3,10 +3,13 @@ import { FeatureNotes } from "~/components/feature-notes";
 import { Md } from "~/components/markdown";
 import { Options } from "~/components/options";
 import { features } from "~/lib/feature-list";
+import { running } from "~/lib/sprites/running";
+import { mom } from "~/lib/sprites/mom";
+import { bButton } from "~/lib/sprites/bButton";
 
 export default function Page() {
   const feature = features.running;
-  const img = "/sprites/running.webp";
+  const img = running;
   const alt = "Brendan running sprite";
   // prettier-ignore
   return (
@@ -36,7 +39,7 @@ borderColor="border-emerald-600"
 childBorderColor="[&>div]:not-first:border-emerald-600"
 textColor="text-emerald-600"
 >
-<FeatureNotes.NoteMd src="/sprites/mom.webp" alt="Mom sprite">
+<FeatureNotes.NoteMd src={mom} alt="Mom sprite">
 {
 `
 **Running Shoes** 
@@ -45,7 +48,7 @@ Running shoes must still be obtained by mom at the start of the game.
 `
 }
 </FeatureNotes.NoteMd>
-<FeatureNotes.NoteMd src="/sprites/b-button.webp" alt="B-Button sprite">
+<FeatureNotes.NoteMd src={bButton} alt="B-Button sprite">
 {
 `
 **B-Button** 

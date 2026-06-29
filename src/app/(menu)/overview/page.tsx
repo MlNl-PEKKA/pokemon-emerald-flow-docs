@@ -1,9 +1,10 @@
 import { HeroMd } from "~/components/hero";
 import { Md } from "~/components/markdown";
 import { pages } from "~/lib/menu-items";
+import { birch } from "~/lib/sprites/birch";
 
 export default function Page() {
-  const img = "/sprites/birch.webp";
+  const img = birch;
   const alt = "Birch sprite";
   // prettier-ignore
   return (

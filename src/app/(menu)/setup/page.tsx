@@ -3,9 +3,10 @@ import { HeroMd } from "~/components/hero";
 import { Md } from "~/components/markdown";
 
 import { pages } from "~/lib/menu-items";
+import { setup } from "~/lib/sprites/setup";
 
 export default function Page() {
-  const img = "/sprites/setup.webp";
+  const img = setup;
   const alt = "Bag and Brendan sprite";
   // prettier-ignore
   return (
