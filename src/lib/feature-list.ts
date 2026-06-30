@@ -166,7 +166,7 @@ export const featureList = [
     } as const),
   ],
   [
-    "1$ Items",
+    "One$ Items",
     getOptions({
       options: [
         ["Off", VANILLA_GAMEPLAY],

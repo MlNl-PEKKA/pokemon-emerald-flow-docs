@@ -17,7 +17,7 @@ import { menuItems } from "~/lib/menu-items";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { MenuButton } from "./menu-button";
-import { logo } from "~/lib/sprites/logo";
+import { logo } from "~/lib/generated/sprites/logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
