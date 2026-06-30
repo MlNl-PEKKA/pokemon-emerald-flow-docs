@@ -13,3 +13,9 @@ export const getKebabCase = <T extends string>(str: T) =>
 
 export const getUrl = <T extends string>(str: T): KebabCaseUrl<T> =>
   `/${getKebabCase(str)}`;
+
+export const keys = <T extends Record<string, unknown>>(obj: T) =>
+  Object.keys(obj) as (keyof T)[];
+
+export const entries = <T extends Record<string, unknown>>(obj: T) =>
+  Object.entries(obj) as [keyof T, T[keyof T]][];
