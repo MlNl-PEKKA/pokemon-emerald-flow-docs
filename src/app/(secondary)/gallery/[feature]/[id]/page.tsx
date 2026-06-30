@@ -6,6 +6,9 @@ import { gallery } from "~/lib/generated/gallery";
 import { pages } from "~/lib/menu-items";
 import { entries } from "~/lib/utils";
 
+// All posts besides gallery will be a 404
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return entries(gallery).reduce(
     (acc, [feature, ids]) => {
