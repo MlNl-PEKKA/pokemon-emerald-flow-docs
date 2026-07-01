@@ -6,7 +6,7 @@ import type { KebabCase, KebabCaseUrl, Prettify } from "./types";
 import { getKebabCase, getUrl } from "./utils";
 const sections = [
   ["Overview"],
-  ["Setup", ["Rom Patcher JS", "Hack Dex"]],
+  ["Setup", ["Native", "Rom Patcher JS", "Hack Dex"]],
   ["Features", featureTitles],
 ] as const satisfies Sections;
 
